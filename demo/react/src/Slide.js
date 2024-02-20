@@ -1,18 +1,20 @@
-import LikeButton from "./LikeButton";
+import LikeButton from './LikeButton';
 
 const Slide = (props) => {
+
+  console.log(props)
   return (
     <article className="slide">
-      <img src="/images/card.png" alt="Player Name" />
+      <img src={props.cardData.imageUrl} alt={props.cardData.name} />
       <div className="info">
-        <h3>Loading </h3>
-        <p></p>
+        <h3>{props.cardData.name} </h3>
+        <p>{props.cardData.team}</p>
         <ul>
-          <li>Position:</li>
-          <li>Games Played:</li>
-          <li>Goals:</li>
-          <li>Assists:</li>
-          <li>Points:</li>
+          <li>Position: {props.cardData.position}</li>
+          <li>Games Played: {props.cardData.stats.gamesPlayed}</li>
+          <li>Goals: {props.cardData.stats.goals}</li>
+          <li>Assists: {props.cardData.stats.assists}</li>
+          <li>Points: {props.cardData.stats.points}</li>
         </ul>
         <LikeButton />
       </div>
