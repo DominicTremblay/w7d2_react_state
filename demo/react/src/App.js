@@ -18,6 +18,7 @@ function App() {
         points: 90,
       },
       imageUrl: '/images/ovechkin.jpg',
+      like: false,
     },
     {
       id: 2,
@@ -31,6 +32,7 @@ function App() {
         points: 116,
       },
       imageUrl: '/images/mcdavid.jpg',
+      like: false,
     },
     {
       id: 3,
@@ -44,6 +46,7 @@ function App() {
         points: 93,
       },
       imageUrl: '/images/mackinnon.jpg',
+      like: false,
     },
     {
       id: 4,
@@ -57,6 +60,7 @@ function App() {
         points: 82,
       },
       imageUrl: '/images/matthews.jpg',
+      like: false,
     },
     {
       id: 5,
@@ -70,6 +74,7 @@ function App() {
         points: 74,
       },
       imageUrl: '/images/pettersson.jpg',
+      like: false,
     },
     {
       id: 6,
@@ -83,10 +88,19 @@ function App() {
         points: 42,
       },
       imageUrl: '/images/anderson.jpg',
+      like: false,
     },
   ]);
 
   const [currentCard, setCurrentCard] = useState(0);
+
+  const changeSlide = (action) => {
+    if (action === 'next') {
+      setCurrentCard(currentCard === cards.length - 1 ? 0 : currentCard + 1);
+    } else {
+      setCurrentCard(currentCard === 0 ? cards.length - 1 : currentCard - 1);
+    }
+  }
 
   return (
     <main>
@@ -95,8 +109,18 @@ function App() {
 
         <Slider cardData={cards[currentCard]} />
 
-        <NavButton style="slide-arrow prev-arrow" content="&#10094;" />
-        <NavButton style="slide-arrow next-arrow" content="&#10095;" />
+        <NavButton
+          action="prev"
+          style="slide-arrow prev-arrow"
+          content="&#10094;"
+          changeSlide={changeSlide}
+        />
+        <NavButton
+          action="next"
+          style="slide-arrow next-arrow"
+          content="&#10095;"
+          changeSlide={changeSlide}
+        />
       </section>
     </main>
   );

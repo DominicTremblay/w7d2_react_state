@@ -1,7 +1,11 @@
 import React from 'react';
 
 function LikeButton(props) {
-  return <button className="like-button">Like</button>;
+  return (
+    <button className={props.like ? 'like-button liked': 'like-button'}>
+      Like
+    </button>
+  );
 }
 
 export default LikeButton;

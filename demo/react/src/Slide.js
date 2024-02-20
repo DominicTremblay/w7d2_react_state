@@ -16,7 +16,7 @@ const Slide = (props) => {
           <li>Assists: {props.cardData.stats.assists}</li>
           <li>Points: {props.cardData.stats.points}</li>
         </ul>
-        <LikeButton />
+        <LikeButton like={props.cardData.like}/>
       </div>
     </article>
   );
