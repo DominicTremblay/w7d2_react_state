@@ -102,12 +102,23 @@ function App() {
     }
   }
 
+  const likeCard = (id) => {  
+    const newCards = cards.map((card) => {
+      if (card.id === id) {
+        return { ...card, like: !card.like };
+      }
+      return card;
+    });
+    setCards(newCards);
+  }
+
+
   return (
     <main>
       <section id="slider-container">
         <Header />
 
-        <Slider cardData={cards[currentCard]} />
+        <Slider cardData={cards[currentCard]} likeCard={likeCard}/>
 
         <NavButton
           action="prev"
