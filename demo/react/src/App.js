@@ -105,7 +105,7 @@ function App() {
   const likeCard = (id) => {  
     const newCards = cards.map((card) => {
       if (card.id === id) {
-        return { ...card, like: !card.like };
+        card.like = !card.like;
       }
       return card;
     });
